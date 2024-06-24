@@ -1,0 +1,48 @@
+5 Marks
+
+unit 1 
+
+1.explain arrays in java with example programs?
+2. write about string class and how memory is managed for string?
+3. write about javabuzz words and explain about Agents,Responsibilities,messages and methods.
+4. Discuss OOPS concepts ( Four pillars of OOPS), with simple examples.
+
+unit 2
+
+1.write about different forms of inheritance with proper examples.
+2.Discuss about Member access rules (Access Modifiers) in java.
+3.Discuss differences between classes and interfaces with a example program.
+4.Discuss differences between Abstract Classes and interfaces with a example program.
+
+unit 3
+
+1.Explain Hierarchy of Exception Classes with a neat hierarchy tree.
+2.Explain concept of Exception handling and explain how try and catch blocks work with an example.
+3.Discuss benefits of Exception handling and explain how throw, throws and Finally work with an Example.
+
+1 Mark
+
+Unit 1
+
+1. Explain where "This" Key word is used with an Example.
+2. Write about Garbage Collection in Java.
+3. what is Method Overloading?
+4. what is Method Overriding?
+
+Unit 2
+
+1. Discuss about 'Object Class' in Java.
+2. Why do we use packages in Java?
+3. State different uses of "super" key word.
+4. why do we use 'Final' Keyword?
+
+Unit 3
+
+1 . what is a 'Runtime Exception'?
+2 . What is Exception Handling?
+3 . why do we use Exception Handling.
+
+
+
+
+

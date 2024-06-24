@@ -1,0 +1,45 @@
+<%- include ("includes/header", {
+    "title": "My Uploads"
+ }) %>
+ <style>
+    .fg{
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        margin: 50px auto;
+    }
+    form label {
+        font-size: 1em;
+        margin-bottom: 10px;
+        display: block;
+        color: #333;
+    }
+    form input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 1em;
+    }
+    .hj[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 3px;
+        font-size: 1em;
+        cursor: pointer;
+    }
+
+    .hj[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+ </style>
+    <form class="fg" action="/viewDocuments" method="get" style="margin-top: 50px; margin-bottom: 50px;">
+        <label for="uniqueId">Enter your unique ID:</label>
+        <input type="text" id="uniqueId" name="uniqueId" required>
+        <button class="hj" type="submit">View Documents</button>
+    </form>

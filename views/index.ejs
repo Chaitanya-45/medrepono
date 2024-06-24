@@ -1,0 +1,84 @@
+<%- include ("includes/header") %>
+
+<div id="homeApp" style="margin-bottom: 80px;">
+    <div class="container" id="features">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>MedRepono</h1>
+                <p>Access and upload patient lab reports seamlessly, with secure code-based viewing for doctors and patients.</p>
+            </div>
+        </div>
+        <div style="margin-right: 100px; margin-left: 0px;">
+                <img src="/public/img/home.jpg">
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <img v-bind:src="mainURL + '/public/img/user-doctor-solid.svg'" />
+                    </div>
+
+                    <div class="card-body">
+                        <h4>Doctor Portal</h4>
+                        <p>Enabling doctors to manage patient information, view reports, and provide medical consultations through a secure portal.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <img v-bind:src="mainURL + '/public/img/vial-solid.svg'" />
+                    </div>
+
+                    <div class="card-body">
+                        <h4>Lab Technician Portal</h4>
+                        <p>Allowing lab technicians to upload and manage patient reports using unique IDs, ensuring accurate and timely delivery of lab results.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <img v-bind:src="mainURL + '/public/img/file-medical-solid.svg'" />
+                    </div>
+
+                    <div class="card-body">
+                        <h4>Lab Technician Portal</h4>
+                        <p>Allowing lab technicians to upload and manage patient reports using unique IDs, ensuring accurate and timely delivery of lab results.</p>
+                    </div>
+                </div>
+            </div>  
+        </div>
+
+    <div class="container-fluid" id="cta">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2>Start Uploading</h2>
+                    <br />
+                    <p style="font-size: 20px;">Get access to storing all you reports at one place. <br /> All information is handled securely.</p>
+
+                    <a href="<%= request.mainURL %>/MyUploads" class="btn btn-success" style="margin-top: 30px;">
+                        Upload now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const homeApp = Vue.createApp({
+        data() {
+            return {
+                mainURL: baseUrl,
+            }
+        }
+    });
+    homeApp.mount("#homeApp");
+</script>
+
+<%- include ("includes/footer") %>

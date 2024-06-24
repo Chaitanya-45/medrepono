@@ -1,0 +1,95 @@
+<%- include("includes/header", { "title": "Your Documents" }) %>
+
+<div class="container">
+    <h1 class="my-4">Your Documents</h1>
+    <% if (documents.length > 0) { %>
+        <div class="row">
+            <% documents.forEach(function(document) { %>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body" style="font-size: 100px; text-align: center; height: 300px;">
+                            <i class="fa fa-file-text-o"></i>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>
+                                        <a href="javascript:void(0);"
+                                           onclick="viewFile(this);"
+                                           data-id="<%= document._id %>"
+                                           data-name="<%= document.name %>"
+                                           data-type="<%= document.type %>"
+                                           data-unique-key="<%= document.uniqueKey %>">
+                                           <%= document.name.substring(0, 20) %>
+                                           <%= (document.name.length > 20) ? "..." : "" %>
+                                        </a>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    <% } else { %>
+        <p>No documents found.</p>
+    <% } %>
+    <a href="/viewDocumentsForm" class="btn btn-primary mt-4">Go Back</a>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="viewFileModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Modal body content will be dynamically updated -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                <form method="POST" action="<%= request.mainURL %>/ShareViaLink" id="form-share-via-link" style="display: contents;">
+                    <input type="hidden" name="_id" required />
+                </form>
+
+               
+
+                <script>
+                    function shareViaLink() {
+                        if (confirm("Generate shareable link ?")) {
+                            document.getElementById("form-share-via-link").submit();
+                        }
+                    }
+                </script>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("includes/footer") %>
+
+<script>
+    function viewFile(self) {
+        var _id = self.getAttribute("data-id");
+        var name = self.getAttribute("data-name");
+        var type = self.getAttribute("data-type");
+
+        document.querySelector("#viewFileModal .modal-title").innerHTML = name;
+
+        var modalBodyHtml = "";
+        modalBodyHtml += "<button type='button' class='btn btn-success' onclick='downloadFile(this);' data-id='" + _id + "'>Download</button>";
+
+        document.querySelector("#viewFileModal .modal-body").innerHTML = modalBodyHtml;
+        $("#viewFileModal").modal("show");
+
+        document.getElementById("form-delete-file")._id.value = _id;
+        document.getElementById("form-share-via-link")._id.value = _id;
+    }
+</script>
