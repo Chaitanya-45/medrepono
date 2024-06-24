@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 // using express JS
 var express = require("express");
 var app = express();
@@ -42,8 +44,10 @@ app.use("/public/fonts", express.static(__dirname + "/public/fonts"));
 // using EJS as templating engine
 app.set("view engine", "ejs");
 
+
+const PORT = process.env.PORT || 3000;
 // main URL of website
-var mainURL = "http://localhost:3000";
+var mainURL = `http://localhost:${PORT}`;
 
 // global database object
 var database = null;
@@ -196,19 +200,23 @@ function recursiveSearchShared (files, query) {
 }
 
 // start the http server
-http.listen(3000, function () {
+http.listen(PORT, function () {
     console.log("Server started at " + mainURL);
 
+    var database; 
+    var connectionString=process.env.MONGO_CONNECT_URI;
     // connect with mongo DB server
-    mongoClient.connect("mongodb://localhost:27017", {
+    mongoClient.connect(connectionString, {
+        useNewUrlParser: true,
         useUnifiedTopology: true
     }, function (error, client) {
-
+        if (error) {
+            console.error("Error connecting to MongoDB:", error);
+            return;
+        }
         // connect database (it will automatically create the database if not exists)
-        database = client.db("file_transfer");
-        console.log("Database connected.");
-
-        
+        database = client.db();
+        console.log("Connected to MongoDB Atlas");    
 
 
         // search files or folders
