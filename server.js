@@ -20,7 +20,8 @@ var httpObj = require("http");
 var http = httpObj.createServer(app);
 
 // to encrypt/decrypt passwords
-var bcrypt = require("bcrypt");
+const bcrypt = require('bcryptjs');
+
 
 // to store files
 var fileSystem = require("fs");
