@@ -48,7 +48,7 @@ app.set("view engine", "ejs");
 
 const PORT = process.env.PORT || 3000;
 // main URL of website
-var mainURL = `https://medrepono.onrender.com/`;
+var mainURL = `https://medrepono.onrender.com`;
 
 // global database object
 var database = null;
